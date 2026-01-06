@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(img/Bureau.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.book {
+    position: relative;
+    width: 560px;
+    height: 700px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+}
+
+.cover,
+.back-cover {
+    position: absolute;
+    width: 560px;
+    height: 700px;
+    background: #353755;
+    border-radius: 4px 20px 20px 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform-origin: center left;
+    transform: rotateX(10deg);
+}
+
+
+.cover {
+    z-index: 20;
+    transition: transform 1.8s ease;
+}
+
+.last-page {
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.4s ease;
+}
+
+.last-page.active {
+    opacity: 1;
+    z-index: 0;
+}
+
+.back-cover {
+    z-index: 0;
+}
+
+
+.book.open .cover {
+    transform: rotateX(10deg) rotateY(-180deg);
+}
+
+.cover img {
+    width: 150px;
+    display: block;
+    margin: 30px auto 20px;
+    border-radius: 50%;
+}
+
+.cover h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.page {
+    position: absolute;
+    width: 550px;
+    height: 680px;
+    background: #fff;
+    border-radius: 4px 15px 15px 4px;
+    transform-origin: center left;
+    transform: rotateX(10deg);
+    padding: 25px;
+    opacity: 0;
+    z-index: 5;
+    transition: transform 1.5s ease, opacity 0.4s ease;
+    backface-visibility: hidden;
+}
+
+.page.active {
+    opacity: 1;
+    z-index: 30;
+    box-shadow: inset 10px 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.page.turned {
+    transform: rotateX(10deg) rotateY(-180deg);
+    opacity: 0;
+    z-index: 5;
+    box-shadow: inset -10px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sheet {
+    position: absolute;
+    width: 550px;
+    height: 680px;
+    background: #fdfdfd;
+    border-radius: 4px 15px 15px 4px;
+    transform-origin: left center;
+    transform: rotateX(10deg);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05), 2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 15;
+    pointer-events: none;
+    transition: transform 0.9s ease;
+}
+
+.sheet.turned {
+    transform: rotateX(10deg) rotateY(-180deg);
+    z-index: 5;
+}
+
+.page h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.projets {
+    padding-left: 40px;
+}
+
+.projets p {
+    margin-bottom: 15px;
+}
+
+.projets ol {
+    margin-bottom: 20px;
+}
+
+.projets ol li {
+    margin-bottom: 8px;
+}
+
+.projets ol a {
+    text-decoration: none;
+    color: #2a4dff;
+}
+
+.projets ol a:hover {
+    text-decoration: underline;
+}
+
+.icone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.icone figure {
+    width: 100px;
+    text-align: center;
+}
+
+.icone figcaption {
+    font-size: 14px;
+}
+
+.icone img {
+    width: 70px;
+    margin-top: 8px;
+}
+
+.last-page h3 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 200px;
+}
